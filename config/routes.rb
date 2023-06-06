@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
       get 'users/:id/confirm' => 'users#confirm', as: 'confirm'
       patch 'users/:id/resign' => 'users#resign', as: 'resign'
-      get 'users/:id/favorites' => 'users#favorites', as: 'favorites'
+      get 'users/favorites' => 'users#favorites', as: 'favorites'
       resources :users, only: [:show, :edit, :update]
 
       resources :posts, only: [:index, :new, :show, :edit, :create, :update, :destroy] do
