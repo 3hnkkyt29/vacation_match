@@ -7,3 +7,82 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
+      <% if admin_signed_in? %> <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
+      <li>
+      <%= link_to admin_homes_top_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-users"></i></i> ユーザー一覧
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to admin_comments_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-comments"></i> コメント一覧
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-out-alt"></i> ログアウト
+      <% end %>
+      </li>
+
+
+      <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
+
+      <%= link_to user_path(current_customer),class: 'nav-link text-secondary' do %>
+      <i class="fas fa-user"></i> My page
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to new_post_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-plus-square"></i> New Post
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to posts_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-images"></i> All Posts
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-out-alt"></i> Sign out
+      <% end %>
+      </li>
+
+
+      <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
+
+      <li>
+      <%= link_to about_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-home"></i> About
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to posts_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-images"></i> All Posts
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to new_user_registration_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-user-plus"></i> Sign up
+      <% end %>
+      </li>
+
+      <li>
+      <%= link_to new_user_session_path,class: 'nav-link text-secondary' do %>
+      <i class="fas fa-sign-in-alt"></i> Sign in
+      <% end %>
+      </li>
+
+      <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
