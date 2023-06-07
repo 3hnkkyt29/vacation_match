@@ -1,2 +1,45 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center mt-3 mb-3">
+    <h3 class="border-bottom border-gray">Post Detail</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+        <%= image_tag @post.image, size: '300x300' %>
+    </div>
+
+    <!--いいねとコメント数入れる-->
+
+    <div class="col-md-8">
+      <table class="table table-borderless">
+        <tbody>
+        <tr>
+          <th>タイトル<th>
+          <td><%= @post.title %></td>
+        </tr>
+
+        <tr>
+          <th>キャプション<th>
+          <td><%= @post.body %></td>
+        </tr>
+
+        <tr>
+          <th>タグ<th>
+          <td><%= @post.tag_i18n %></td>
+        </tr>
+
+        <tr>
+          <th>キーワード<th>
+          <td><%= @post.keyword %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+        <!--コメント欄入れる-->
+
+  <div class="row justify-content-center mb-3">
+    <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+  </div>
+</div>

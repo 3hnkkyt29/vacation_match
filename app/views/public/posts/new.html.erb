@@ -1,2 +1,45 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center mt-3 mb-4">
+    <h3 class="border-bottom border-gray">New Post</h3>
+  </div>
+
+  <div class="row justify-content-lg-center">
+    <div class="mx-auto">
+      <div class="col-lg-12">
+        <%= flash[:notice] %>
+        <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
+
+        <div class="form-row pb-md-3">
+          <div class="col-sm-4"><%= f.label :画像 %></div>
+          <div class="col-sm-8"><%= f.file_field :image, accept: 'image/*' %></div>
+        </div>
+
+        <div class="form-row pb-md-3">
+          <div class="col-sm-4"><%= f.label :タイトル %></div>
+          <div class="col-sm-8"><%= f.text_field :title, placeholder: "例）〇〇公園、カフェ〇〇、〇〇空の景色 etc…" %></div>
+        </div>
+
+        <div class="form-row pb-md-3">
+          <div class="col-sm-4"><%= f.label :キャプション %></div>
+          <div class="col-sm-8"><%= f.text_area :body, rows: '5', placeholder: "旅先での思い出やオススメポイントを共有してください！" %></div>
+        </div>
+
+        <div class="form-row pb-md-3">
+          <div class="col-sm-4"><%= f.label :タグ %></div>
+          <div class="col-sm-8"><%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]} %></div>
+        </div>
+
+        <div class="form-row pb-md-3">
+          <div class="col-sm-4"><%= f.label :キーワード %></div>
+          <div class="col-sm-8"><%= f.text_area :keyword, rows: '5', placeholder: "低予算？穴場？駅近？このスポットを表すキーワードを思いつく限り入力してください！（「、」で区切ってください）" %></div>
+        </div>
+
+
+        <div class="row justify-content-center mb-md-4">
+          <%= f.submit 'Post', class: "btn btn-success" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
