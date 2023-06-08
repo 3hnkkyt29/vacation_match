@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+/*Googleフォント用*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');

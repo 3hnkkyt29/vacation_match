@@ -1,2 +1,31 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center align-items-end my-3">
+    <h3 class="border-bottom border-gray m-0 pr-1">All Posts</h3>
+  </div>
+
+<!--キーワード検索入れる（部分テンプレートにするか）-->
+
+<!--タグで絞り込み入れる-->
+
+    <div class="col-10">
+      <div class="d-flex flex-wrap">
+      <% @posts.each do |post| %>
+        <div class="text-center m-3">
+        <%= link_to post_path(post) do %>
+          <% if post.image.present? %>
+            <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
+          <% else %>
+            <%= image_tag 'noimage.png' , size: '200x200' %>
+          <% end %>
+          <p class="text-truncate text-dark"><%= post.title %></p>
+          <p class="text-dark"><%= post.tag_i18n %></p>
+　　      <!--いいね、コメント数入れる-->
+        <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+<!--ページネーション-->
+
+</div>
