@@ -29,7 +29,7 @@
 
 
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
-
+      <li>
       <%= link_to user_path(current_user),class: 'nav-link text-secondary' do %>
       <i class="fas fa-user"></i> My page
       <% end %>

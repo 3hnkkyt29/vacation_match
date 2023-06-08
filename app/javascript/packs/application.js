@@ -11,8 +11,17 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// ScrollReveal用
+$(function(){
+  ScrollReveal().reveal('.caption', {
+    duration: 2000,
+    scale: 4,
+    reset: false
+  });
+});

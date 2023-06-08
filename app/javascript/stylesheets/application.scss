@@ -1,1 +1,13 @@
 @use '~bootstrap/scss/bootstrap';
+
+/*Googleフォント用*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+
+h2 {
+  font-family: 'Merriweather', serif;
+}
+
+li {
+  font-family: 'Merriweather', serif;
+}
