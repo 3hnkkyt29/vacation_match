@@ -14,4 +14,7 @@ class Post < ApplicationRecord
      okinawa:47
   }
 
+  def self.search_for(keyword)
+      Post.where('keyword LIKE ?', '%'+keyword+'%')
+  end
 end
