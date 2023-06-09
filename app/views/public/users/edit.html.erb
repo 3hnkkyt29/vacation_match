@@ -1,2 +1,23 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center mt-3 mb-4">
+    <h2 class="border-bottom border-gray m-0 pr-1">Edit Your Profile</h2>
+  </div>
+
+  <%= form_with model: @user do |f| %>
+
+  <div class="field">
+    <%= f.label :profile_image %><br>
+    <%= f.file_field :profile_image, placeholder: "Image", accept: "image/*" %><br>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"ユーザー名" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, id:"email", placeholder:"メールアドレス" %>
+  </div>
+
+  <%= f.submit "Edit", class:'btn btn-outline-success my-2' %>
+  <% end %>

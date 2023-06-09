@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row justify-content-center mt-3 mb-3">
-    <h3 class="border-bottom border-gray">Post Detail</h3>
+    <h2 class="border-bottom border-gray">Post Detail</h2>
   </div>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
+      <h2>Posted by</h2>
+      <%= render 'public/users/show', user: @user %>
+      <%= link_to "See other posts", user_path(@user), class: "btn btn-outline-success" %>
+    </div>
+
+
+    <div class="col-md-3">
       <% if @post.image.present? %>
-        <%= image_tag @post.image, size: '300x300' %><br>
+        <%= image_tag @post.image, size: '250x250' %><br>
       <% else %>
-        <%= image_tag 'noimage.png' , size: '300x300' %>
+        <%= image_tag 'noimage.png' , size: '250x250' %>
       <% end %>
     </div>
 
     <!--いいねとコメント数入れる-->
 
-    <div class="col-md-8">
+    <div class="col-md-6">
       <table class="table table-borderless">
         <tbody>
         <tr>
@@ -42,8 +49,9 @@
   </div>
 
         <!--コメント欄入れる-->
-
+  <% if @post.user == current_user %>
   <div class="row justify-content-center mb-3">
-    <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+    <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-outline-success" %>
   </div>
+  <% end %>
 </div>
