@@ -16,8 +16,9 @@
       ユーザー名　<%= @user.name %>
       <!--ログインしてるユーザーにのみ表示されたい-->
       <% if @user == current_user %>
-      <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-success" %>
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-success" %>
       <% end %>
+
       </div>
 
     <div class="col-md-9">
