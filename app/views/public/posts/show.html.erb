@@ -7,7 +7,9 @@
     <div class="col-md-3">
       <h2>Posted by</h2>
       <%= render 'public/users/show', user: @user %>
+      <div class="mt-md-3">
       <%= link_to "See other posts", user_path(@user), class: "btn btn-outline-success" %>
+      </div>
     </div>
 
 
@@ -17,9 +19,12 @@
       <% else %>
         <%= image_tag 'noimage.png' , size: '250x250' %>
       <% end %>
-    </div>
 
-    <!--いいねとコメント数入れる-->
+        <!--いいねとコメント数入れる-->
+      <div class="mt-md-4">
+        <p>コメント件数：<%= @post.comments.count %></p>
+      </div>
+    </div>
 
     <div class="col-md-6">
       <table class="table table-borderless">
@@ -45,13 +50,29 @@
         </tr>
         </tbody>
       </table>
-    </div>
-  </div>
 
         <!--コメント欄入れる-->
-  <% if @post.user == current_user %>
-  <div class="row justify-content-center mb-3">
-    <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-outline-success" %>
+        <div class="mb-md-4">
+          <% @post.comments.each do |comment| %>
+            <%= image_tag comment.user.profile_image, size: '50x50' %>&emsp;
+            <%= comment.user.name %>&emsp;
+            <%= comment.comment %>&emsp;
+            <% if comment.user == current_user %>
+              <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
+            <% end %>
+          <% end %>
+        </div>
+        <%= form_with model: [@post, @comment] do |f| %>
+          <%= f.text_area :comment, :size=>"60x2", placeholder: "コメントをどうぞ！" %>
+          <%= f.submit "comment" %>
+        <% end %>
+
+        <!--ログインユーザーの投稿のみ編集ボタン表示-->
+        <% if @post.user == current_user %>
+          <div class="row justify-content-center mb-3">
+          <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-outline-success" %>
+          </div>
+        <% end %>
+    </div>
   </div>
-  <% end %>
 </div>
