@@ -13,10 +13,11 @@
           <% else %>
             <%= image_tag 'noimage.png' , size: '200x200', class: "mb-2" %>
           <% end %>
-          <p class="text-truncate text-dark"><%= post.title %></p>
+          <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
           <p class="text-dark"><%= post.tag_i18n %></p>
-　　      <!--いいね、コメント数入れる-->
-        <% end %>
+          <% end %>
+          <p class="text-dark"><%= post.comments.count %>Fav!／コメント件数:<%= post.comments.count %></p>
+        
       </div>
       <% end %>
   </div>

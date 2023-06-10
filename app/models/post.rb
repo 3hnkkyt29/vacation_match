@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum tag: {
     "---":0,
@@ -18,5 +19,9 @@ class Post < ApplicationRecord
 
   def self.search_for(keyword)
     Post.where('keyword LIKE ? OR title LIKE ?', "%#{keyword}%", "%#{keyword}%")
+  end
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
 end

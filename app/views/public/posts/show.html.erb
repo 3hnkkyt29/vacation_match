@@ -21,7 +21,23 @@
       <% end %>
 
         <!--いいねとコメント数入れる-->
-      <div class="mt-md-4">
+      <div class="row justify-content-center mt-md-4">
+        <% if @post.favorited_by?(current_user) %>
+          <p>
+            <%= link_to post_favorites_path(@post), method: :delete do %>
+            ♥<%= @post.favorites.count %> Fav!
+            <% end %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to post_favorites_path(@post), method: :post do %>
+            ♡<%= @post.favorites.count %> Fav!
+          <% end %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="row justify-content-center">
         <p>コメント件数：<%= @post.comments.count %></p>
       </div>
     </div>
@@ -52,9 +68,14 @@
       </table>
 
         <!--コメント欄入れる-->
+        <!--コメントがずれる。row justify-content-startで解決できず-->
         <div class="mb-md-4">
-          <% @post.comments.each do |comment| %>
-            <%= image_tag comment.user.profile_image, size: '50x50' %>&emsp;
+          <% @post.comments.each do |comment| %><br>
+            <% if comment.user.profile_image.present? %>&emsp;
+              <%= image_tag comment.user.profile_image, size: '50x50' %>
+            <% else %>
+              <%= image_tag 'noimage.png' , size: '50x50' %>
+            <% end %>
             <%= comment.user.name %>&emsp;
             <%= comment.comment %>&emsp;
             <% if comment.user == current_user %>
