@@ -2,12 +2,30 @@ class Public::SearchesController < ApplicationController
   # before_action :authenticate_user!
 
   def search
-    @content = params[:content].split(/[[:blank:]]+/)
-    @records = Post.none
+    # キーワードと都道府県で検索した場合
+    if (!params['content'].empty? && params['tag'] != '---') then
+      @content = params[:content].split(/[[:blank:]]+/)
+      @records = Post.none
       @content.each_with_index do |content, i|
         @records = Post.search_for(content) if i == 0
         @records = @records.merge(@records.search_for(content))
       end
+      @records = @records.where(tag: params['tag'])
+    # キーワードのみで検索した場合
+    elsif !params['content'].empty?
+      @content = params[:content].split(/[[:blank:]]+/)
+      @records = Post.none
+      @content.each_with_index do |content, i|
+        @records = Post.search_for(content) if i == 0
+        @records = @records.merge(@records.search_for(content))
+      end
+    # 都道府県のみで検索した場合
+    elsif !params['tag'] != '---'
+      @records = Post.none
+      @records = Post.where(tag: params['tag'])
+    end
+    # タグ絞り込み検索
+
   end
 
 end

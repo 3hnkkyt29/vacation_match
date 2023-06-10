@@ -16,6 +16,6 @@ class Post < ApplicationRecord
   }
 
   def self.search_for(keyword)
-      Post.where('keyword LIKE ? OR title LIKE ?', "%#{keyword}%", "%#{keyword}%")
+    Post.where('keyword LIKE ? OR title LIKE ?', "%#{keyword}%", "%#{keyword}%")
   end
 end

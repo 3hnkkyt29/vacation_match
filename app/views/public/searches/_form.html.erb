@@ -1,4 +1,7 @@
+都道府県で絞り込み
 <%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]} %>
+  <!--キーワード検索-->
   <%= f.text_field :content %>
-  <%= f.submit '検索' %>
+  <%= f.submit 'Search' %>
 <% end %>
