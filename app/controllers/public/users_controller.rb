@@ -26,6 +26,11 @@ class Public::UsersController < ApplicationController
   def confirm
   end
 
+  def favorites
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @posts = Post.find(favorites)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :profile_image)

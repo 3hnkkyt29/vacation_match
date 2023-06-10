@@ -9,13 +9,15 @@
     <div class="col-md-3">
       <%= render 'public/users/show', user: @user %>
       <!--ログインしてるユーザーにのみ表示されたい-->
-      <div class="mt-md-3">
-        <% if @user == current_user %>
+      <% if @user == current_user %>
+        <div class="mb-md-3">
           <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-success" %>
-        <% end %>
-      </div>
-
-      </div>
+        </div>
+        <div class="mb-md-3">
+          <%= link_to "Your Favorites Posts", favorites_path, class: "btn btn-outline-info" %>
+        </div>
+      <% end %>
+    </div>
 
     <div class="col-md-9">
       <%= render 'public/posts/index', posts: @posts %>
