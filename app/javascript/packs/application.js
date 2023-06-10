@@ -21,7 +21,8 @@ ActiveStorage.start()
 $(function(){
   ScrollReveal().reveal('.caption', {
     duration: 2000,
-    scale: 4,
-    reset: false
+    scale: 10,
+    reset: false,
+    origin: 'top'
   });
 });

@@ -1,9 +1,32 @@
-<div class="container">
-  <div class="row justify-content-center mt-3 mb-4">
+<div class="container-fluid">
+  <div class="caption row justify-content-center mt-3 mb-4">
     <h2>Welcome to Vacation Match!</h2>
   </div>
-</div>
 
-<div class="caption">
-  きっとあなたにピッタリの目的地が見つかるはず!
+  <div class="caption text-center">
+    きっとあなたにピッタリの目的地が見つかるはず!<br>
+    写真映え？グルメ？穴場スポット？<br>
+    気になるワードで検索してみよう！<br>
+    まずは投稿をチェック!<br>
+  </div>
+
+  <div class="col-12">
+    <div class="d-flex justify-content-center">
+      <% @post.each do |post| %>
+        <div class="text-center m-3">
+          <% if post.image.present? %>
+            <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
+          <% else %>
+            <%= image_tag 'noimage.png' , size: '200x200', class: "mb-2" %><br>
+          <% end %>
+          <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
+        </div>
+      <% end %>
+    </div>
+
+
+  <div class="text-right mr-5 mb-3">
+    <%= link_to "もっと見る！＞＞", posts_path, class: "font-weight-bold text-primary" %>
+  </div>
+</div>
 </div>
