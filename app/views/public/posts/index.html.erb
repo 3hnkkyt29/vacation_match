@@ -1,37 +1,9 @@
-<div class="container">
-  <div class="row justify-content-center mt-3 mb-4">
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center align-items-end my-3">
     <h2 class="border-bottom border-gray m-0 pr-1">All Posts</h2>
   </div>
 
-<!--キーワード検索入れる（部分テンプレートにするか）-->
-  <div class="row justify-content-end">
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :content %>
-      <%= f.submit '検索' %>
-    <% end %>
-  </div>
-
-<!--タグで絞り込み入れる-->
-
-    <div class="col-10">
-      <div class="d-flex flex-wrap">
-      <% @posts.each do |post| %>
-        <div class="text-center m-3">
-        <%= link_to post_path(post) do %>
-          <% if post.image.present? %>
-            <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
-          <% else %>
-            <%= image_tag 'noimage.png' , size: '200x200' %>
-          <% end %>
-          <p class="text-truncate text-dark"><%= post.title %></p>
-          <p class="text-dark"><%= post.tag_i18n %></p>
-　　      <!--いいね、コメント数入れる-->
-        <% end %>
-        </div>
-      <% end %>
-      </div>
+    <div class="col-12">
+      <%= render 'public/posts/index', posts: @posts %>
     </div>
-
-<!--ページネーション-->
-
 </div>
