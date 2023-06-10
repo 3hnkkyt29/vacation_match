@@ -1,5 +1,4 @@
 class Public::SearchesController < ApplicationController
-  # before_action :authenticate_user!
 
   def search
     # キーワードと都道府県で検索した場合
@@ -24,8 +23,6 @@ class Public::SearchesController < ApplicationController
       @records = Post.none
       @records = Post.where(tag: params['tag'])
     end
-    # タグ絞り込み検索
-
   end
 
 end

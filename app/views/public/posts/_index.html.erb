@@ -1,26 +1,20 @@
-  <div class="row justify-content-end">
-    <%= render 'public/searches/form' %>
+<div class="d-flex flex-wrap">
+  <% posts.each do |post| %>
+  <div class="text-center m-3">
+  <%= link_to post_path(post) do %>
+    <% if post.image.present? %>
+      <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
+    <% else %>
+      <%= image_tag 'noimage.png' , size: '200x200', class: "mb-2" %>
+    <% end %>
+    <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
+    <p class="text-dark"><%= post.tag_i18n %></p>
+  <% end %>
+  <p class="text-dark"><%= post.favorites.count %>Fav!／コメント件数:<%= post.comments.count %></p>
+
   </div>
-
-<!--タグで絞り込み入れる-->
-
-  <div class="d-flex flex-wrap">
-    <% posts.each do |post| %>
-      <div class="text-center m-3">
-        <%= link_to post_path(post) do %>
-          <% if post.image.present? %>
-            <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
-          <% else %>
-            <%= image_tag 'noimage.png' , size: '200x200', class: "mb-2" %>
-          <% end %>
-          <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
-          <p class="text-dark"><%= post.tag_i18n %></p>
-          <% end %>
-          <p class="text-dark"><%= post.favorites.count %>Fav!／コメント件数:<%= post.comments.count %></p>
-
-      </div>
-      <% end %>
-  </div>
+  <% end %>
 </div>
+
 
 <!--ページネーション-->
