@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row justify-content-center mt-3 mb-3">
+    <h2 class="border-bottom border-gray">Post Detail</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Posted by</h2>
+      <%= render 'public/users/show', user: @user %>
+      <div class="mt-md-3">
+      <%= link_to "See other posts", user_path(@user), class: "btn btn-outline-success" %>
+      </div>
+    </div>
+
+
+    <div class="col-md-3">
+      <% if @post.image.present? %>
+        <%= image_tag @post.image, size: '250x250' %><br>
+      <% else %>
+        <%= image_tag 'noimage.png' , size: '250x250' %>
+      <% end %>
+
+      <div class="row justify-content-center">
+        <p>コメント件数：<%= @post.comments.count %></p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <table class="table table-borderless">
+        <tbody>
+        <tr>
+          <th>タイトル<th>
+          <td><%= @post.title %></td>
+        </tr>
+
+        <tr>
+          <th>キャプション<th>
+          <td><%= @post.body %></td>
+        </tr>
+
+        <tr>
+          <th>タグ<th>
+          <td><%= @post.tag_i18n %></td>
+        </tr>
+
+        <tr>
+          <th>キーワード<th>
+          <td><%= @post.keyword %></td>
+        </tr>
+        </tbody>
+      </table>
+
+        <div class="mb-md-4">
+          <h5>【コメント一覧】</h5>
+          <% @post.comments.each do |comment| %><br>
+            <% if comment.user.profile_image.present? %>&emsp;
+              <%= image_tag comment.user.profile_image, size: '50x50' %>
+            <% else %>
+              <%= image_tag 'noimage.png' , size: '50x50' %>
+            <% end %>
+            <%= comment.user.name %>&emsp;
+            <%= comment.comment %>&emsp;
+            <%= link_to "Delete", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
+          <% end %>
+        </div>
+
+          <div class="row justify-content-center mb-3">
+          <%= link_to "Delete", admin_post_path(@post.id), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          </div>
+    </div>
+  </div>
+</div>

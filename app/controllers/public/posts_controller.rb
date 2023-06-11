@@ -12,7 +12,6 @@ class Public::PostsController < ApplicationController
     redirect_to post_path(@post.id)
   end
 
-
   def index
     @posts = Post.all
   end
