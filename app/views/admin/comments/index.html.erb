@@ -18,6 +18,7 @@
           <td class="align-middle"><%= comment.user.name %></td>
           <td class="align-middle"><%= link_to comment.post.title, admin_post_path(comment.post) %></td>
           <td class="align-middle"><%= comment.comment %></td>
+          <!--<td class="align-middle"><%#= link_to "削除", admin_comments_path, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>-->
         </tr>
         <% end %>
       </tbody>
