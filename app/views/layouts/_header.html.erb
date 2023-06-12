@@ -36,25 +36,25 @@
 
       <% elsif user_signed_in? %> <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
       <li>
-      <%= link_to user_path(current_user),class: 'nav-link text-secondary' do %>
+      <%= link_to user_path(current_user), class:"btn btn-warning" do %>
       <i class="fas fa-user"></i> My page
       <% end %>
       </li>
 
       <li>
-      <%= link_to new_post_path,class: 'nav-link text-secondary' do %>
+      <%= link_to new_post_path, class:"btn btn-warning" do %>
       <i class="fas fa-plus-square"></i> New Post
       <% end %>
       </li>
 
       <li>
-      <%= link_to posts_path,class: 'nav-link text-secondary' do %>
+      <%= link_to posts_path, class:"btn btn-warning" do %>
       <i class="fas fa-images"></i> All Posts
       <% end %>
       </li>
 
       <li>
-      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+      <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-warning" do %>
       <i class="fas fa-sign-out-alt"></i> Sign out
       <% end %>
       </li>
@@ -63,25 +63,25 @@
       <% else %> <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
 
       <li>
-      <%= link_to about_path,class: 'nav-link text-secondary' do %>
+      <%= link_to about_path, class:"btn btn-warning" do %>
       <i class="fas fa-home"></i> About
       <% end %>
       </li>
 
       <li>
-      <%= link_to posts_path,class: 'nav-link text-secondary' do %>
+      <%= link_to posts_path, class:"btn btn-warning" do %>
       <i class="fas fa-images"></i> All Posts
       <% end %>
       </li>
 
       <li>
-      <%= link_to new_user_registration_path,class: 'nav-link text-secondary' do %>
+      <%= link_to new_user_registration_path, class:"btn btn-warning" do %>
       <i class="fas fa-user-plus"></i> Sign up
       <% end %>
       </li>
 
       <li>
-      <%= link_to new_user_session_path,class: 'nav-link text-secondary' do %>
+      <%= link_to new_user_session_path, class:"btn btn-warning" do %>
       <i class="fas fa-sign-in-alt"></i> Sign in
       <% end %>
       </li>
