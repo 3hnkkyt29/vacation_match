@@ -27,6 +27,14 @@ class Public::UsersController < ApplicationController
   def confirm
   end
 
+  def resign
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    # フラッシュメッセージ入れる？？
+    redirect_to root_path
+  end
+
   def favorites
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @posts = Post.find(favorites)

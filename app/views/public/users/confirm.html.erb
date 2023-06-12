@@ -1,2 +1,18 @@
-<h1>Public::Users#confirm</h1>
-<p>Find me in app/views/public/users/confirm.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center mt-3 mb-3">
+    <h2 class="border-bottom border-gray">退会お手続き</h2>
+  </div>
+  <div class="row justify-content-center mt-3 mb-3">
+    <strong>
+     退会手続きをされますと、全ての「投稿」、「コメント」、「いいね」が削除されます。<br>
+     再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
+     退会してよろしいですか？
+    </strong>
+  </div>
+  <div class="row justify-content-center mt-3 mb-3">
+    <%= link_to "退会する", resign_path, class: "btn btn-outline-danger", method: :patch, "data-confirm" => "本当に退会しますか？" %>
+  </div>
+  <div class="row justify-content-center mt-3 mb-3">
+    <%= link_to "退会しない", user_path(current_user), class: "btn btn-outline-success" %>
+  </div>
+</div>
