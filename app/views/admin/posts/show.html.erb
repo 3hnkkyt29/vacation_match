@@ -8,7 +8,7 @@
       <h2>Posted by</h2>
       <%= render 'public/users/show', user: @user %>
       <div class="mt-md-3">
-      <%= link_to "See other posts", user_path(@user), class: "btn btn-outline-success" %>
+      <%= link_to "See other posts", admin_user_path(@user), class: "btn btn-outline-success" %>
       </div>
     </div>
 
