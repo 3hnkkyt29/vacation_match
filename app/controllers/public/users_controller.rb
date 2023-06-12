@@ -16,9 +16,10 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "You have updated user successfully."
+      flash[:notice] = "You have updated your profile successfully!"
       redirect_to user_path
     else
+      flash[:notice] = "Failed to update."
       render :edit
     end
   end

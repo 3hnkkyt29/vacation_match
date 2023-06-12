@@ -4,6 +4,10 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :keyword, presence: true
+
   enum tag: {
     "---":0,
      hokkaido:1,aomnori:2,iwate:3,miyagi:4,akita:5,yamagata:6,fukushima:7,

@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row justify-content-center mt-3 mb-4">
+    <%= flash[:notice] %>
+  </div>
+  
+  <div class="row justify-content-center mt-3 mb-4">
     <h2 class="border-bottom border-gray">New Post</h2>
   </div>
 
   <div class="row justify-content-lg-center">
     <div class="mx-auto">
       <div class="col-lg-12">
-        <%= flash[:notice] %>
         <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
 
         <div class="form-row pb-md-3">

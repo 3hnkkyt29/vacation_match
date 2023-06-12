@@ -1,4 +1,8 @@
 <div class="container">
+  <div class="row justify-content-center mt-3 mb-4">
+    <%= flash[:notice] %>
+  </div>
+
   <div class="row justify-content-center mt-3 mb-3">
     <h2 class="border-bottom border-gray">Post Detail</h2>
   </div>
@@ -69,7 +73,7 @@
 
         <!--コメント欄入れる-->
         <!--コメントがずれる。row justify-content-startで解決できず-->
-        
+
         <div class="mb-md-4">
           <h5>【コメント一覧】</h5>
           <% @post.comments.each do |comment| %><br>

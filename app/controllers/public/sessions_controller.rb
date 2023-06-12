@@ -32,6 +32,7 @@ class Public::SessionsController < Devise::SessionsController
   
   protected
   def after_sign_in_path_for(resource)
+    flash[:notice] = "login successful!"
     user_path(current_user)
   end
   
