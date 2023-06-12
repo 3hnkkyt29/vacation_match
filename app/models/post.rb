@@ -9,6 +9,9 @@ class Post < ApplicationRecord
   validates :keyword, presence: true
   validates :tag, presence: true, exclusion: { in: %w(---) }
 
+  # 論理削除したユーザーの投稿は出したくない
+  # scope :is_deleted, -> { where(is_deleted: false)}
+
   enum tag: {
     "---":0,
      hokkaido:1,aomnori:2,iwate:3,miyagi:4,akita:5,yamagata:6,fukushima:7,

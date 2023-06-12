@@ -19,6 +19,8 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    # 論理削除したユーザーの投稿は出したくない
+    # @posts = Post.is_deleted
   end
 
 
