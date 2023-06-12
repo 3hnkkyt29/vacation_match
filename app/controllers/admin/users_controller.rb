@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.destroy(user_params)
+    @user.update(user_params)
     redirect_to admin_user_path(@user)
   end
 
