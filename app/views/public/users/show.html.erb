@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row justify-content-center mt-3 mb-4">
     <%= flash[:notice] %>
   </div>
@@ -7,7 +7,7 @@
     <h2 class="border-bottom border-gray m-0 pr-1">All posts of <%= @user.name %> </h2>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-3">
       <%= render 'public/users/show', user: @user %>
       <!--ログインしてるユーザーにのみ表示されたい-->

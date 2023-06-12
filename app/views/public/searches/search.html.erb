@@ -12,25 +12,11 @@
   </div>
 
     <div class="col-12">
-
       <div class="row justify-content-end">
         <%= render 'public/searches/form' %>
       </div>
-
-      <div class="d-flex flex-wrap">
-      <% @records.each do |post| %>
-        <div class="text-center m-3">
-        <%= link_to post_path(post) do %>
-          <% if post.image.present? %>
-            <%= image_tag post.image, size: '200x200', class: "mb-2" %><br>
-          <% else %>
-            <%= image_tag 'noimage.png' , size: '200x200' %>
-          <% end %>
-          <p class="text-truncate text-dark"><%= post.title %></p>
-          <p class="text-dark"><%= post.tag_i18n %></p>
-　　      <!--いいね、コメント数入れる-->
-        <% end %>
-        </div>
-      <% end %>
+      <div>
+        <%= render 'public/posts/index', posts: @records %>
       </div>
     </div>
+</div>

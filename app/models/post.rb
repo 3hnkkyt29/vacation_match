@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :keyword, presence: true
+  # validates :tag, exclusion: { in: %w("---") }
 
   enum tag: {
     "---":0,
