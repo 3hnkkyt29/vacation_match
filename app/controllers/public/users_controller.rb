@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
+  before_action :resign_guest_user, only: [:confirm]
 
   def show
     @user = User.find(params[:id])
@@ -49,6 +50,13 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.name == "guest"
       redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end
+
+  def resign_guest_user
+     @user = User.find(params[:id])
+    if @user.name == "guest"
+      redirect_to user_path(current_user) , notice: 'ゲストユーザーは退会できません。'
     end
   end
 end
