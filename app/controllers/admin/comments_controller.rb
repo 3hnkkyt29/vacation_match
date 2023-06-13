@@ -2,7 +2,7 @@ class Admin::CommentsController < ApplicationController
 before_action :authenticate_admin!
 
   def index
-    @comments = Comment.all
+    @comments = Comment.includes(:user).where(users:{is_deleted: false})
   end
 
   def destroy

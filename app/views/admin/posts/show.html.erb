@@ -21,7 +21,7 @@
       <% end %>
 
       <div class="row justify-content-center">
-        <p>コメント件数：<%= @post.comments.count %></p>
+        <p>コメント件数：<%= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>
       </div>
     </div>
 
@@ -52,7 +52,7 @@
 
         <div class="mb-md-4">
           <h5>【コメント一覧】</h5>
-          <% @post.comments.each do |comment| %><br>
+          <% @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
             <% if comment.user.profile_image.present? %>&emsp;
               <%= image_tag comment.user.profile_image, size: '50x50' %>
             <% else %>
