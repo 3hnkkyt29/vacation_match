@@ -18,7 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:user).where(users:{is_deleted: false})
+    @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(12)
   end
 
 

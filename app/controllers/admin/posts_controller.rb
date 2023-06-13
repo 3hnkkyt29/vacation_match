@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.includes(:user).where(users:{is_deleted: false})
+    @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(30)
   end
 
   def show
