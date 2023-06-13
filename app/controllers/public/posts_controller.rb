@@ -18,9 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-    # 論理削除したユーザーの投稿は出したくない
-    # @posts = Post.is_deleted
+    @posts = Post.includes(:user).where(users:{is_deleted: false})
   end
 
 
