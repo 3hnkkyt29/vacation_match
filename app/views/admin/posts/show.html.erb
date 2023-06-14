@@ -4,16 +4,16 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-3">
       <h2>Posted by</h2>
       <%= render 'public/users/show', user: @user %>
-      <div class="mt-md-3">
+      <div class="mt-3">
       <%= link_to "See other posts", admin_user_path(@user), class: "btn btn-outline-success" %>
       </div>
     </div>
 
 
-    <div class="col-md-3">
+    <div class="col-3">
       <% if @post.image.present? %>
         <%= image_tag @post.image, size: '250x250' %><br>
       <% else %>
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-6">
       <table class="table table-borderless">
         <tbody>
         <tr>
@@ -50,15 +50,15 @@
         </tbody>
       </table>
 
-        <div class="mb-md-4">
+        <div class="mb-4">
           <h5>【コメント一覧】</h5>
           <% @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
-            <% if comment.user.profile_image.present? %>&emsp;
-              <%= image_tag comment.user.profile_image, size: '50x50' %>
+            <% if comment.user.profile_image.present? %>
+              <%= image_tag comment.user.profile_image, size: '50x50', style: 'border-radius:50%' %>&emsp;
             <% else %>
-              <%= image_tag 'noimage.png' , size: '50x50' %>
+              <%= image_tag 'noimage.png' , size: '50x50', style: 'border-radius:50%' %>&emsp;
             <% end %>
-            <%= comment.user.name %>&emsp;
+            <strong><%= comment.user.name %></strong>&emsp;
             <%= comment.comment %>&emsp;
             <%= link_to "Delete", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
           <% end %>

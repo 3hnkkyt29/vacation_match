@@ -12,19 +12,19 @@
       <%= render 'public/users/show', user: @user %>
       <!--ログインしてるユーザーにのみ表示されたい-->
       <% if @user == current_user %>
-        <div class="text-center-align mt-md-3">
+        <div class="text-center-align mt-3">
           <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-success" %>
         </div>
-        <div class="text-center-align mt-md-3">
+        <div class="text-center-align mt-3">
           <%= link_to "Your Favorites Posts", favorites_path, class: "btn btn-outline-info" %>
         </div>
-        <div class="text-center-align mt-md-3">
+        <div class="text-center-align mt-3">
           <%= link_to "退会手続き", confirm_path, class: "btn btn-outline-danger" %>
         </div>
       <% end %>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-9">
       <%= render 'public/posts/index', posts: @posts %>
     </div>
 

@@ -8,7 +8,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-3">
       <h2 class="text-center-align mb-4">Posted by</h2>
       <%= render 'public/users/show', user: @user %>
 
@@ -18,7 +18,7 @@
     </div>
 
 
-    <div class="col-md-3">
+    <div class="col-3">
       <% if @post.image.present? %>
         <%= image_tag @post.image, size: '250x250' %><br>
       <% else %>
@@ -26,7 +26,7 @@
       <% end %>
 
         <!--いいねとコメント数入れる-->
-      <div class="row justify-content-center mt-md-4">
+      <div class="row justify-content-center mt-4">
         <div id="post_<%= @post.id %>">
           <%= render 'public/favorites/favorite-btn', post: @post %>
         </div>
@@ -37,53 +37,52 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-6">
       <table class="table table-borderless">
         <tbody>
         <tr>
-          <th>タイトル<th>
+          <th class="text-nowrap">タイトル<th>
           <td><%= @post.title %></td>
         </tr>
 
         <tr>
-          <th>キャプション<th>
+          <th class="text-nowrap">キャプション<th>
           <td><%= @post.body %></td>
         </tr>
 
         <tr>
-          <th>タグ<th>
+          <th class="text-nowrap">タグ<th>
           <td><%= @post.tag_i18n %></td>
         </tr>
 
         <tr>
-          <th>キーワード<th>
+          <th class="text-nowrap">キーワード<th>
           <td><%= @post.keyword %></td>
         </tr>
         </tbody>
       </table>
 
-        <!--コメント欄入れる-->
-        <!--コメントがずれる。row justify-content-startで解決できず-->
-
-        <div class="mb-md-4">
-          <h5>【コメント一覧】</h5>
+        <div class="mb-4">
+          <h5 class="text-center-align">【コメント一覧】</h5>
           <% @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
             <% if comment.user.profile_image.present? %>
-              <%= image_tag comment.user.profile_image, size: '50x50' %>&emsp;
+              <%= image_tag comment.user.profile_image, size: '50x50', style: 'border-radius:50%' %>&emsp;
             <% else %>
-              <%= image_tag 'noimage.png' , size: '50x50' %>&emsp;
+              <%= image_tag 'noimage.png' , size: '50x50', style: 'border-radius:50%' %>&emsp;
             <% end %>
-            <%= comment.user.name %>&emsp;
+            <strong><%= comment.user.name %></strong>&emsp;
             <%= comment.comment %>&emsp;
             <% if comment.user == current_user %>
               <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
             <% end %>
           <% end %>
         </div>
+        <div class="text-center-align">
         <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, :size=>"60x2", placeholder: "コメントをどうぞ！" %>
-          <%= f.submit "comment" %>
+          <%= f.text_area :comment, :size=>"50x2", placeholder: "コメントをどうぞ！" %>
+          <%= f.submit "comment!" %>
         <% end %>
+        </div>
 
         <!--ログインユーザーの投稿のみ編集ボタン表示-->
         <% if @post.user == current_user %>

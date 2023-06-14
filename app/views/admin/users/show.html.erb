@@ -4,7 +4,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-md-3">
+    <div class="col-3">
       <% if @user.profile_image.present? %>
         <%= image_tag @user.profile_image, size: '100x100' %><br>
       <% else %>
@@ -28,14 +28,14 @@
             退会
         </div>
         <%= f.submit "ステータスを変更", class:'btn btn-outline-success my-2' %>
-        
+
       <% end %>
 
 
 
     </div>
 
-    <div class="col-md-9">
+    <div class="col-9">
       <%= render 'public/posts/index', posts: @posts %>
     </div>
 
