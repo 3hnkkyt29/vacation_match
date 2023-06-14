@@ -35,12 +35,14 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
-      <div class="actions">
+      <div class="actions mt-md-2">
         <%= f.submit "Sign up" %>
       </div>
     <% end %>
 
-    <%= render "public/shared/links" %>
+      <div class="mt-md-4">
+        登録がお済みの場合は<%= render "public/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
