@@ -5,16 +5,20 @@
 
     <div class="col-12 d-flex flex-wrap">
     <% @posts.each do |post| %>
-      <div class="text-center m-2">
+      <div class="text-center col-lg-1 col-md-2 col-sm-4">
         <%= link_to admin_post_path(post) do %>
           <% if post.image.present? %>
-            <%= image_tag post.image, size: '100x100', class: "mb-2" %><br>
+            <div class="text-center">
+              <%= image_tag post.image, class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
+            </div>
           <% else %>
-            <%= image_tag 'noimage.png' , size: '100x100', class: "mb-2" %><br>
+            <div class="text-center">
+              <%= image_tag 'noimage.png', class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
+            </div>
           <% end %>
-          <strong class="text-dark d-inline-block text-truncate" style="max-width: 100px;"><%= post.title %></strong>
+          <strong class="text-dark d-inline-block text-truncate w-100" style="max-width: 100px;font-size: 14px;"><%= post.title %></strong>
         <% end %>
-        <p class="text-dark"><%= post.user.name %></p>
+        <p class="text-dark text-truncate w-100" style="max-width: 100px;font-size: 12px;"><%= post.user.name %></p>
       </div>
         <% end %>
   </div>
