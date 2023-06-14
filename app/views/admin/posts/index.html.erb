@@ -3,18 +3,19 @@
     <h2 class="border-bottom border-gray m-0 pr-1">All Posts</h2>
   </div>
 
-<div class="d-flex flex-wrap">
-  <% @posts.each do |post| %>
-  <div class="text-center m-3">
-  <%= link_to admin_post_path(post) do %>
-    <% if post.image.present? %>
-      <%= image_tag post.image, size: '100x100', class: "mb-2" %><br>
-    <% else %>
-      <%= image_tag 'noimage.png' , size: '100x100', class: "mb-2" %><br>
-    <% end %>
-    <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
-  <% end %>
-  <p class="text-dark"><%= post.user.name %></p>
+    <div class="col-12 d-flex flex-wrap">
+    <% @posts.each do |post| %>
+      <div class="text-center m-2">
+        <%= link_to admin_post_path(post) do %>
+          <% if post.image.present? %>
+            <%= image_tag post.image, size: '100x100', class: "mb-2" %><br>
+          <% else %>
+            <%= image_tag 'noimage.png' , size: '100x100', class: "mb-2" %><br>
+          <% end %>
+          <strong class="text-dark d-inline-block text-truncate" style="max-width: 100px;"><%= post.title %></strong>
+        <% end %>
+        <p class="text-dark"><%= post.user.name %></p>
+      </div>
+        <% end %>
   </div>
-  <% end %>
 </div>

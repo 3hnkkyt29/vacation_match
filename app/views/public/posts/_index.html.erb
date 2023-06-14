@@ -7,7 +7,7 @@
     <% else %>
       <%= image_tag 'noimage.png' , size: '200x200', class: "mb-2" %><br>
     <% end %>
-    <p class="font-weight-bold text-truncate text-dark"><%= post.title %></p>
+    <strong class="text-dark d-inline-block text-truncate" style="max-width: 200px;"><%= post.title %></strong>
     <p class="text-dark"><%= post.tag_i18n %></p>
   <% end %>
   <p class="text-dark"><%= post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %>Fav!／コメント件数:<%= post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>
