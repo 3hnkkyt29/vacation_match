@@ -39,6 +39,7 @@ class Public::UsersController < ApplicationController
   def favorites
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @posts = Post.find(favorites)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(12)
   end
 
   private
