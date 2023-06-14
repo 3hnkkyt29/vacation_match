@@ -27,19 +27,22 @@
 
         <!--いいねとコメント数入れる-->
       <div class="row justify-content-center mt-md-4">
-        <% if @post.favorited_by?(current_user) %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :delete do %>
-            ♥<%= @post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!
-            <% end %>
-          </p>
-        <% else %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :post do %>
-            ♡<%= @post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!
-          <% end %>
-          </p>
-        <% end %>
+        <div id="post_<%= @post.id %>">
+          <%= render 'public/favorites/favorite-btn', post: @post %>
+        </div>
+      <!--  <%# if @post.favorited_by?(current_user) %>-->
+      <!--    <p class="favorite_btn">-->
+      <!--      <%#= link_to post_favorites_path(@post), method: :delete, remote: true do %>-->
+      <!--      ♥<%#= @post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!-->
+      <!--      <%# end %>-->
+      <!--    </p>-->
+      <!--  <#% else %>-->
+      <!--    <p class="favorite_btn">-->
+      <!--      <#%= link_to post_favorites_path(@post), method: :post, remote: true do %>-->
+      <!--      ♡<#%= @post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!-->
+      <!--    <%# end %>-->
+      <!--    </p>-->
+      <!--  <%# end %>-->
       </div>
 
       <div class="row justify-content-center">
