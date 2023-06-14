@@ -1,12 +1,14 @@
-<div class="mt-md-3">
-  <% if user.profile_image.present? %>
-    <%= image_tag user.profile_image, size: '100x100' %><br>
-  <% else %>
-    <%= image_tag 'noimage.png' , size: '100x100' %>
-  <% end %>
-</div>
+<div class="text-center-align">
+  <div class="mb-md-3">
+    <% if user.profile_image.present? %>
+      <%= image_tag user.profile_image, size: '100x100', style: 'border-radius:50%' %><br>
+    <% else %>
+      <%= image_tag 'noimage.png' , size: '100x100', style: 'border-radius:50%' %><br>
+    <% end %>
+  </div>
 
-<div class="my-md-3">
-  <h4>User Name</h4><br>
-  <h4><%= user.name %></h4>
+  <div class="mb-md-3">
+    <h4>User Name</h4><br>
+    <h6><%= user.name %></h6>
+  </div>
 </div>

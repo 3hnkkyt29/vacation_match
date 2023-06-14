@@ -4,13 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 
-h2 {
+h2, h4, h6 {
   font-family: 'Merriweather', serif;
 }
 
-h4 {
-  font-family: 'Merriweather', serif;
-}
+// h4 {
+//   font-family: 'Merriweather', serif;
+// }
 
 li {
   font-family: 'Merriweather', serif;
@@ -19,4 +19,9 @@ li {
 .btn-warning {
     background: #ffeddb; //ボタンの背景色
     color: #ff840a; //ボタンのテキストの色
+}
+.text-center-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
