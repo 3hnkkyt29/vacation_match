@@ -23,6 +23,13 @@ class Post < ApplicationRecord
      okinawa:47
   }
 
+  # 並び替え機能用
+  scope :latest, -> { order(created_at: :desc) }
+  scope :old, -> { order(created_at: :asc) }
+  scope :most_favorited, -> { includes(:favorites).sort_by { |x| x.favorites.includes(:favorites).size }.reverse }
+  scope :most_commented, -> { includes(:comments).sort_by { |x| x.comments.includes(:comments).size }.reverse }
+
+  # 検索機能用
   def self.search_for(keyword)
     Post.where('keyword LIKE ? OR title LIKE ?', "%#{keyword}%", "%#{keyword}%")
   end

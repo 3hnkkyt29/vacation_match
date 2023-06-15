@@ -4,15 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 
-h2, h4, h6 {
-  font-family: 'Merriweather', serif;
-}
-
-// h4 {
-//   font-family: 'Merriweather', serif;
-// }
-
-li {
+h2, h4, h6, li {
   font-family: 'Merriweather', serif;
 }
 
@@ -25,3 +17,16 @@ li {
   align-items: center;
   justify-content: center;
 }
+
+// .hover:hover{
+// 	color: #FF0000;
+// 	font-size: 20px;
+// 	font-weight: bold;
+// }
+// .scale-img {
+// 　transition-duration: 0.5s; /*変化の時間*/
+// }
+// .scale-img:hover {
+// 　transform: scale(1.2,1.2); /*画像の拡大*/
+// 　cursor: pointer; /*カーソルをポインターにする*/
+// }

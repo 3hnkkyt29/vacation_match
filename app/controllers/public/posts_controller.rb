@@ -18,7 +18,23 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(12)
+    # 新着順
+    if params[:latest]
+      @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(12).latest
+    # 古い順
+    elsif params[:old]
+      @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(12).old
+    # いいねが多い順
+    elsif params[:most_favorited]
+      @posts = Post.includes(:user).where(users:{is_deleted: false}).most_favorited
+      @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(12)
+    # コメントが多い順
+    elsif params[:most_commented]
+      @posts = Post.includes(:user).where(users:{is_deleted: false}).most_commented
+      @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(12)
+    else
+      @posts = Post.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(12).order(created_at: :desc)
+    end
   end
 
 
