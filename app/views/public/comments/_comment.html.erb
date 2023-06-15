@@ -1,0 +1,12 @@
+<% post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
+  <% if comment.user.profile_image.present? %>
+    <%= image_tag comment.user.profile_image, size: '50x50', style: 'border-radius:50%' %>&emsp;
+  <% else %>
+    <%= image_tag 'noimage.png' , size: '50x50', style: 'border-radius:50%' %>&emsp;
+  <% end %>
+  <strong><%= comment.user.name %></strong>&emsp;
+  <%= comment.comment %>&emsp;
+  <% if comment.user == current_user %>
+    <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {"turbolinks" => false}, class: "btn btn-outline-danger btn-sm" %>&emsp;
+  <% end %>
+<% end %>

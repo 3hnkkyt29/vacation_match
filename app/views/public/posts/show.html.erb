@@ -66,24 +66,15 @@
 
         <div class="mb-4">
           <h5 class="text-center-align">【コメント一覧】</h5>
-          <% @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
-            <% if comment.user.profile_image.present? %>
-              <%= image_tag comment.user.profile_image, size: '50x50', style: 'border-radius:50%' %>&emsp;
-            <% else %>
-              <%= image_tag 'noimage.png' , size: '50x50', style: 'border-radius:50%' %>&emsp;
-            <% end %>
-            <strong><%= comment.user.name %></strong>&emsp;
-            <%= comment.comment %>&emsp;
-            <% if comment.user == current_user %>
-              <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
-            <% end %>
-          <% end %>
+            <div id="comments_area">
+            <%= render 'public/comments/comment', post: @post %>
+            </div>
         </div>
+
         <div class="text-center-align">
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントをどうぞ！" %>
-          <%= f.submit "comment!" %>
-        <% end %>
+          <div id="new-comment">
+            <%= render 'public/comments/comment_form', post: @post, comment: @comment %>
+          </div>
         </div>
 
         <!--ログインユーザーの投稿のみ編集ボタン表示-->
