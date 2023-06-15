@@ -5,39 +5,41 @@
 
   <div class="row justify-content-center">
     <div class="col-lg-3 col-sm-12">
+      <div class="text-center-align mb-3">
       <% if @user.profile_image.present? %>
         <%= image_tag @user.profile_image, size: '100x100', style: 'border-radius:50%' %><br>
       <% else %>
         <%= image_tag 'noimage.png' , size: '100x100', style: 'border-radius:50%' %><br>
        <% end %>
-      ユーザーID：<%= @user.id %><br>
-      ユーザー名：<%= @user.name %><br>
-      メールアドレス：<%= @user.email %><br>
-      ステータス：
+      </div>
+
+      <div class="text-center-align"><strong>ユーザーID</strong>：<%= @user.id %></div>
+      <div class="text-center-align"><strong>ユーザー名</strong>：<%= @user.name %></div>
+      <div class="text-center-align"><strong>メールアドレス</strong>：<%= @user.email %></div>
+      <div class="text-center-align"><strong>ステータス</strong>：
         <% if @user.is_deleted == false %>
           <b class="text-success">有効</b>
         <% else %>
           <b class="text-secondary">退会</b>
-        <% end %><br>
+        <% end %>
+      </div>
 
-      <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
-        <div class="field">
-          <%= f.radio_button :is_deleted, false, checked:false %>
-            有効
-          <%= f.radio_button :is_deleted, true %>
-            退会
-        </div>
+      <div class="text-center-align">
+        <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
+          <div class="field text-center-align">
+            <%= f.radio_button :is_deleted, false %>
+              <strong>有効</strong>&emsp;
+            <%= f.radio_button :is_deleted, true %>
+              <strong>退会</strong>&emsp;
+          </div>
         <%= f.submit "ステータスを変更", class:'btn btn-outline-success my-2' %>
-
       <% end %>
-
-
-
+      </div>
     </div>
 
     <div class="col-lg-9 col-sm-12">
       <%= render 'public/posts/index', posts: @posts %>
     </div>
 
-    </div>
   </div>
+</div>

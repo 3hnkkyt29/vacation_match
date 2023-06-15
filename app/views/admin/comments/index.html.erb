@@ -16,7 +16,7 @@
       <tbody>
         <tr>
         <% @comments.each do |comment| %>
-          <td class="align-middle"><%= comment.user.name %></td>
+          <td class="align-middle"><%= link_to comment.user.name, admin_user_path(comment.user) %></td>
           <td class="align-middle"><%= link_to comment.post.title, admin_post_path(comment.post) %></td>
           <td class="align-middle"><%= comment.comment %></td>
           <!--<td class="align-middle"><%#= link_to "削除", admin_comments_path, method: :delete, class: "btn btn-outline-danger btn-sm" %></td>-->
@@ -27,6 +27,6 @@
     </div>
   </div>
   <div class="pagination d-flex justify-content-center mb-4">
-    <%= paginate @comments %>
+    <%= paginate @comments, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

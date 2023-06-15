@@ -62,12 +62,12 @@
             <% end %>
             <strong><%= comment.user.name %></strong>&emsp;
             <%= comment.comment %>&emsp;
-            <%= link_to "Delete", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
+            <%= link_to "コメントを削除", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
           <% end %>
         </div>
 
           <div class="row justify-content-center mb-3">
-          <%= link_to "Delete", admin_post_path(@post.id), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "投稿を削除", admin_post_path(@post.id), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
           </div>
     </div>
   </div>
