@@ -18,6 +18,12 @@ h2, h4, h6, li {
   justify-content: center;
 }
 
+  @media screen and (max-width:540px) {
+    .block-width {
+      width: 100%;
+    }
+  }
+
 // .hover:hover{
 // 	color: #FF0000;
 // 	font-size: 20px;

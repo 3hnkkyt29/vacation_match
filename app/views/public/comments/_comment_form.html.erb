@@ -1,4 +1,6 @@
 <%= form_with model: [post, comment], local: false do |f| %>
-  <%= f.text_area :comment, placeholder: "コメントをどうぞ！" %>
-  <%= f.submit "comment!" %>
+  <div class="form-group">
+    <%= f.text_area :comment, placeholder: "コメントをどうぞ！", class: "form-control" %>
+    <%= f.submit "comment!" %>
+  </div>
 <% end %>

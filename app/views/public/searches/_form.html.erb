@@ -1,9 +1,19 @@
-<div>
-  都道府県で絞り込み
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]} %>
+<sdiv class="row">
+<div class="offset-md-5 col-md-7 offset-lg-7 col-lg-5">
+    都道府県で絞り込み
+</div>
+<div class="offset-md-5 col-md-7 offset-lg-7 col-lg-5">
+  <%= form_with url: search_path, method: :get, local: true, class: "form-inline" do |f| %>
+
+    <div class="form-group mr-sm-3 block-width">
+      <%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]}, { selected: params[:tag] }, { class: "form-control w-100" } %>
+    </div>
     <!--キーワード検索-->
-    <%= f.text_field :content %>
-    <%= f.submit 'Search' %>
+    <div class="form-group mr-sm-3 block-width">
+      <%= f.text_field :content, value: params[:content], class: "form-control w-100" %>
+    </div>
+    <div class="form-group mr-sm-3 block-width">
+      <%= f.submit 'Search', class: "btn btn-outline-info btn-block" %>
+    </div>
   <% end %>
 </div>
