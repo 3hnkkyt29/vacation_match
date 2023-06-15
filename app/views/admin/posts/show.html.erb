@@ -1,57 +1,59 @@
 <div class="container">
   <div class="row justify-content-center mt-3 mb-3">
-    <h2 class="border-bottom border-gray">Post Detail</h2>
+    <h2 class="border-bottom border-gray">投稿詳細</h2>
   </div>
 
   <div class="row">
-    <div class="col-3">
-      <h2>Posted by</h2>
+    <div class="col-lg-3 col-sm-12">
+      <h2 class="text-center-align mb-4">Posted by</h2>
       <%= render 'public/users/show', user: @user %>
-      <div class="mt-3">
+      <div class="text-center-align my-3">
       <%= link_to "See other posts", admin_user_path(@user), class: "btn btn-outline-success" %>
       </div>
     </div>
 
 
-    <div class="col-3">
+    <div class="col-lg-3 col-sm-12">
+      <div class="row justify-content-center mt-4">
       <% if @post.image.present? %>
         <%= image_tag @post.image, size: '250x250' %><br>
       <% else %>
-        <%= image_tag 'noimage.png' , size: '250x250' %>
+        <%= image_tag 'noimage.png' , size: '250x250' %><br>
       <% end %>
+      </div>
 
       <div class="row justify-content-center">
         <p>コメント件数：<%= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>
       </div>
     </div>
 
-    <div class="col-6">
+    <div class="col-lg-6 col-sm-12">
       <table class="table table-borderless">
         <tbody>
         <tr>
-          <th>タイトル<th>
+          <th class="text-nowrap">タイトル<th>
           <td><%= @post.title %></td>
         </tr>
 
         <tr>
-          <th>キャプション<th>
+          <th class="text-nowrap">キャプション<th>
           <td><%= @post.body %></td>
         </tr>
 
         <tr>
-          <th>タグ<th>
+          <th class="text-nowrap">タグ<th>
           <td><%= @post.tag_i18n %></td>
         </tr>
 
         <tr>
-          <th>キーワード<th>
+          <th class="text-nowrap">キーワード<th>
           <td><%= @post.keyword %></td>
         </tr>
         </tbody>
       </table>
 
         <div class="mb-4">
-          <h5>【コメント一覧】</h5>
+          <h5 class="text-center-align">【コメント一覧】</h5>
           <% @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).each do |comment| %><br>
             <% if comment.user.profile_image.present? %>
               <%= image_tag comment.user.profile_image, size: '50x50', style: 'border-radius:50%' %>&emsp;

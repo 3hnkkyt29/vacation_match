@@ -12,36 +12,36 @@
         <%= flash[:notice] %>
         <%= form_with model: @post, url: post_path(@post.id), method: :patch, local: true do |f| %>
 
-        <div class="form-row pb-3">
-          <div class="col-4"><%= f.label :画像 %></div>
-          <div class="col-8"><%= f.file_field :image, accept: 'image/*' %></div>
+        <div class="form-row pb-md-3">
+          <strong class="col-lg-4 col-sm-12"><%= f.label :画像 %></strong>
+          <div class="col-lg-8 col-sm-12"><%= f.file_field :image, accept: 'image/*' %></div>
         </div>
 
-        <div class="form-row pb-3">
-          <div class="col-4"><%= f.label :タイトル %></div>
-          <div class="col-8"><%= f.text_field :title %></div>
+        <div class="form-row pb-md-3">
+          <strong class="col-lg-4 col-sm-12"><%= f.label :タイトル %></strong>
+          <div class="col-lg-8 col-sm-12"><%= f.text_field :title %></div>
         </div>
 
-        <div class="form-row pb-3">
-          <div class="col-4"><%= f.label :キャプション %></div>
-          <div class="col-8"><%= f.text_area :body, rows: '5' %></div>
+        <div class="form-row pb-md-3">
+          <strong class="col-lg-4 col-sm-12"><%= f.label :キャプション %></strong>
+          <div class="col-lg-8 col-sm-12"><%= f.text_area :body, rows: '5' %></div>
         </div>
 
-        <div class="form-row pb-3">
-          <div class="col-4"><%= f.label :タグ %></div>
-          <div class="col-8"><%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]} %></div>
+        <div class="form-row pb-md-3">
+          <strong class="col-lg-4 col-sm-12"><%= f.label :タグ %></strong>
+          <div class="col-lg-8 col-sm-12"><%= f.select :tag, Post.tags.keys.map {|k| [I18n.t("enums.post.tag.#{k}"), k]} %></div>
         </div>
 
-        <div class="form-row pb-3">
-          <div class="col-4"><%= f.label :キーワード %></div>
-          <div class="col-8"><%= f.text_area :keyword, rows: '5' %></div>
+        <div class="form-row pb-md-3">
+          <strong class="col-lg-4 col-sm-12"><%= f.label :キーワード %></strong>
+          <div class="col-lg-8 col-sm-12"><%= f.text_area :keyword, rows: '5' %></div>
         </div>
 
 
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-md-4">
           <%= f.submit 'Save', class: "btn btn-outline-success" %>
         </div>
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-md-4">
           <%= link_to "Delete", post_path(@post.id), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </div>
       <% end %>
