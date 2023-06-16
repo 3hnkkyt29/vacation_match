@@ -1,6 +1,6 @@
 <!--colで設定する-->
-<div class="col-sm-3 col-lg-12">
-<div class="d-flex flex-wrap">
+<div class="col-lg-12 col-sm-4">
+<div class="d-flex flex-wrap justify-content-center">
   <% posts.each do |post| %>
   <div class="text-center m-3">
   <%= link_to post_path(post) do %>
@@ -17,10 +17,12 @@
   </div>
   <% end %>
 </div>
-</div>
+
 <!--ページネーション-->
 <div class="row justify-content-center">
   <%= paginate posts, theme: 'twitter-bootstrap-4' %>
 </div>
+</div>
+
 
 
