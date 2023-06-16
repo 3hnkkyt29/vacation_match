@@ -26,5 +26,4 @@ class Public::SearchesController < ApplicationController
       @records = Kaminari.paginate_array(@records).page(params[:page]).per(12)
     end
   end
-
 end
