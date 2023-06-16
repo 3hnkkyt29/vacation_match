@@ -5,6 +5,7 @@
 
     <div class="col-12">
       <div class="row justify-content-center">
+        <p class="h6">並び替えはこちら→</p>
         <%= link_to '＜新着順＞', posts_path(latest: "true"), :style=>"color:black; font-size:14px" %>
         <%= link_to '＜古い順＞', posts_path(old: "true"), :style=>"color:black; font-size:14px" %>
         <%= link_to '＜いいねの多い順＞', posts_path(most_favorited: "true"), :style=>"color:black; font-size:14px" %>
