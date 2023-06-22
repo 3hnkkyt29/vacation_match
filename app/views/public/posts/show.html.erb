@@ -35,7 +35,8 @@
       </div>
 
       <div class="row justify-content-center">
-        <p>コメント件数：<%= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>
+        <div id="comment_count"><%= render 'public/comments/comment_count', post: @post %></div>
+        <!--<p>コメント件数：<%#= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>-->
       </div>
     </div>
 

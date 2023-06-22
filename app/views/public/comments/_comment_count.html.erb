@@ -1,0 +1,1 @@
+コメント件数：<%= post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %>
