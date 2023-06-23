@@ -27,6 +27,9 @@
 
 ## 設計書
 
+## 使用素材
+- ロゴ：Canva(https://www.canva.com/)
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
