@@ -29,6 +29,9 @@
 
 ## 使用素材
 - ロゴ：Canva(https://www.canva.com/)
+- 「NO IMAGE」の表示画像：EC design(http://design-ec.com/)
+- アイコン：Font Awesome（https://fontawesome.com/）
+- フォント：Google Fonts(https://fonts.google.com/)
 
 ## 開発環境
 - OS：Linux(CentOS)
