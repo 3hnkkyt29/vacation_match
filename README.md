@@ -26,6 +26,7 @@
 - 旅先での思い出を共有したい時
 
 ## 設計書
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/14x62fQTqOK6v1hopIsqCdRjHlJNnqD_F4OCYEiHL_n0/edit?usp=sharing)
 
 ## 使用素材
 - ロゴ：Canva(https://www.canva.com/)
