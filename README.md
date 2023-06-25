@@ -27,6 +27,7 @@
 
 ## 設計書
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/14x62fQTqOK6v1hopIsqCdRjHlJNnqD_F4OCYEiHL_n0/edit?usp=sharing)
+- ER図![ER図](images/er.png)
 
 ## 使用素材
 - ロゴ：Canva(https://www.canva.com/)
