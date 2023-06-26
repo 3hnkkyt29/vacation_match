@@ -1,5 +1,5 @@
 class Public::CommentsController < ApplicationController
-  before_action :authenticate_user!
+before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
@@ -15,10 +15,7 @@ class Public::CommentsController < ApplicationController
   end
 
   private
-
   def comment_params
     params.require(:comment).permit(:comment)
   end
-
-
 end

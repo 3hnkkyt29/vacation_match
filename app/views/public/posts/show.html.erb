@@ -2,7 +2,6 @@
   <div class="row justify-content-center mt-3 mb-4">
     <%= flash[:notice] %>
   </div>
-
   <div class="row justify-content-center mt-3 mb-3">
     <h2 class="border-bottom border-gray">Post Detail</h2>
   </div>
@@ -27,7 +26,6 @@
       <% end %>
       </div>
 
-        <!--いいねとコメント数入れる-->
       <div class="row justify-content-center mt-4">
         <div id="post_<%= @post.id %>">
           <%= render 'public/favorites/favorite-btn', post: @post %>
@@ -36,39 +34,38 @@
 
       <div class="row justify-content-center">
         <div id="comment_count"><%= render 'public/comments/comment_count', post: @post %></div>
-        <!--<p>コメント件数：<%#= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>-->
       </div>
     </div>
 
     <div class="col-lg-6 col-sm-12">
       <table class="table table-borderless">
         <tbody>
-        <tr>
-          <th class="text-nowrap">タイトル<th>
-          <td><%= @post.title %></td>
-        </tr>
+          <tr>
+            <th class="text-nowrap">タイトル<th>
+            <td><%= @post.title %></td>
+          </tr>
 
-        <tr>
-          <th class="text-nowrap">キャプション<th>
-          <td><%= @post.body %></td>
-        </tr>
+          <tr>
+            <th class="text-nowrap">キャプション<th>
+            <td><%= @post.body %></td>
+          </tr>
 
-        <tr>
-          <th class="text-nowrap">都道府県<th>
-          <td><%= @post.tag_i18n %></td>
-        </tr>
+          <tr>
+            <th class="text-nowrap">都道府県<th>
+            <td><%= @post.tag_i18n %></td>
+          </tr>
 
-        <tr>
-          <th class="text-nowrap">キーワード<th>
-          <td><%= @post.keyword %></td>
-        </tr>
+          <tr>
+            <th class="text-nowrap">キーワード<th>
+            <td><%= @post.keyword %></td>
+          </tr>
         </tbody>
       </table>
 
         <div class="mb-4">
           <h5 class="text-center-align">【コメント一覧】</h5>
             <div id="comments_area">
-            <%= render 'public/comments/comment', post: @post %>
+              <%= render 'public/comments/comment', post: @post %>
             </div>
         </div>
 

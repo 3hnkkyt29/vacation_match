@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
-  before_action :ensure_guest_user, only: [:edit]
-  before_action :resign_guest_user, only: [:confirm]
+before_action :ensure_guest_user, only: [:edit]
+before_action :resign_guest_user, only: [:confirm]
 
   def show
     @user = User.find(params[:id])
@@ -32,7 +32,6 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
-    # フラッシュメッセージ入れる？？
     redirect_to root_path
   end
 

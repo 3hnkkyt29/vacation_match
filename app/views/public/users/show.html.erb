@@ -10,7 +10,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-3 col-sm-12">
       <%= render 'public/users/show', user: @user %>
-      <!--ログインしてるユーザーにのみ表示されたい-->
+      <!--ログインしてるユーザーにのみ表示-->
       <% if @user == current_user %>
         <div class="text-center-align mt-3">
           <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-success" %>
@@ -27,6 +27,5 @@
     <div class="col-lg-9 col-sm-12">
       <%= render 'public/posts/index', posts: @posts %>
     </div>
-
   </div>
 </div>

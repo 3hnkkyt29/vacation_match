@@ -8,10 +8,9 @@
       <h2 class="text-center-align mb-4">Posted by</h2>
       <%= render 'public/users/show', user: @user %>
       <div class="text-center-align my-3">
-      <%= link_to "このユーザーの他の投稿を確認", admin_user_path(@user), class: "btn btn-outline-success" %>
+        <%= link_to "このユーザーの他の投稿を確認", admin_user_path(@user), class: "btn btn-outline-success" %>
       </div>
     </div>
-
 
     <div class="col-lg-3 col-sm-12">
       <div class="row justify-content-center mt-4">
@@ -30,25 +29,22 @@
     <div class="col-lg-6 col-sm-12">
       <table class="table table-borderless">
         <tbody>
-        <tr>
-          <th class="text-nowrap">タイトル<th>
-          <td><%= @post.title %></td>
-        </tr>
-
-        <tr>
-          <th class="text-nowrap">キャプション<th>
-          <td><%= @post.body %></td>
-        </tr>
-
-        <tr>
-          <th class="text-nowrap">タグ<th>
-          <td><%= @post.tag_i18n %></td>
-        </tr>
-
-        <tr>
-          <th class="text-nowrap">キーワード<th>
-          <td><%= @post.keyword %></td>
-        </tr>
+          <tr>
+            <th class="text-nowrap">タイトル<th>
+            <td><%= @post.title %></td>
+          </tr>
+          <tr>
+            <th class="text-nowrap">キャプション<th>
+            <td><%= @post.body %></td>
+          </tr>
+          <tr>
+            <th class="text-nowrap">タグ<th>
+            <td><%= @post.tag_i18n %></td>
+          </tr>
+          <tr>
+            <th class="text-nowrap">キーワード<th>
+            <td><%= @post.keyword %></td>
+          </tr>
         </tbody>
       </table>
 
@@ -66,9 +62,9 @@
           <% end %>
         </div>
 
-          <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mb-3">
           <%= link_to "投稿を削除", admin_post_path(@post.id), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-          </div>
+        </div>
     </div>
   </div>
 </div>

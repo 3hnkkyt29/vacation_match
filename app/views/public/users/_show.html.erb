@@ -1,12 +1,12 @@
 <div class="text-center">
   <div class="mb-3">
     <div class="mb-3">
-    <% if user.profile_image.present? %>
-      <%= image_tag user.profile_image, size: '100x100', style: 'border-radius:50%' %>&emsp;
-    <% else %>
-      <%= image_tag 'noimage.png' , size: '100x100', style: 'border-radius:50%' %>&emsp;
-    <% end %>
-  </div>
+      <% if user.profile_image.present? %>
+        <%= image_tag user.profile_image, size: '100x100', style: 'border-radius:50%' %>&emsp;
+      <% else %>
+        <%= image_tag 'noimage.png' , size: '100x100', style: 'border-radius:50%' %>&emsp;
+      <% end %>
+    </div>
 
     <h4>User Name</h4>
     <h6 class="mb-3"><%= user.name %></h6>
