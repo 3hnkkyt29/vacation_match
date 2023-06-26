@@ -3,26 +3,26 @@
     <h2 class="border-bottom border-gray m-0 pr-1">All Posts</h2>
   </div>
 
-    <div class="col-12 d-flex flex-wrap">
+  <div class="col-12 d-flex flex-wrap">
     <% @posts.each do |post| %>
-      <div class="text-center col-lg-1 col-md-2 col-sm-6">
-        <%= link_to admin_post_path(post) do %>
-          <% if post.image.present? %>
-            <div class="text-center">
-              <%= image_tag post.image, class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
-            </div>
-          <% else %>
-            <div class="text-center">
-              <%= image_tag 'noimage.png', class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
-            </div>
-          <% end %>
-          <strong class="text-dark d-inline-block text-truncate w-100" style="max-width: 100px;font-size: 14px;"><%= post.title %></strong>
+    <div class="text-center col-lg-1 col-md-2 col-sm-6">
+      <%= link_to admin_post_path(post) do %>
+        <% if post.image.present? %>
+          <div class="text-center">
+            <%= image_tag post.image, class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
+          </div>
+        <% else %>
+          <div class="text-center">
+            <%= image_tag 'noimage.png', class: "mb-2 w-100", style: "aspect-ratio: 1/1;object-fit: cover;" %>
+          </div>
         <% end %>
-        <p class="text-dark text-truncate w-100" style="max-width: 100px;font-size: 12px;"><%= post.user.name %></p>
-      </div>
-        <% end %>
-      <div class="row justify-content-center">
-        <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
-      </div>
+        <strong class="text-dark d-inline-block text-truncate w-100" style="max-width: 100px;font-size: 14px;"><%= post.title %></strong>
+      <% end %>
+      <p class="text-dark text-truncate w-100" style="max-width: 100px;font-size: 12px;"><%= post.user.name %></p>
     </div>
+      <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+  </div>
 </div>
