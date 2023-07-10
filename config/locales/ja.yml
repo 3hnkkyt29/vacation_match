@@ -50,3 +50,7 @@ ja:
         miyazaki: "宮崎"
         kagoshima: "鹿児島"
         okinawa: "沖縄"
+
+  time:
+    formats:
+      default: "%Y/%m/%d"

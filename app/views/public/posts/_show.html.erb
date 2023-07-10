@@ -1,0 +1,28 @@
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <th class="text-nowrap">タイトル<th>
+      <td><%= post.title %></td>
+    </tr>
+
+    <tr>
+      <th class="text-nowrap">キャプション<th>
+      <td><%= post.body %></td>
+    </tr>
+
+    <tr>
+      <th class="text-nowrap">都道府県<th>
+      <td><%= post.tag_i18n %></td>
+    </tr>
+
+    <tr>
+      <th class="text-nowrap">キーワード<th>
+      <td><%= post.keyword %></td>
+    </tr>
+
+    <tr>
+      <th class="text-nowrap">投稿日<th>
+      <td><%= l post.created_at %></td>
+    </tr>
+  </tbody>
+</table>

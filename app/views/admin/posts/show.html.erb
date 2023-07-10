@@ -27,26 +27,7 @@
     </div>
 
     <div class="col-lg-6 col-sm-12">
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th class="text-nowrap">タイトル<th>
-            <td><%= @post.title %></td>
-          </tr>
-          <tr>
-            <th class="text-nowrap">キャプション<th>
-            <td><%= @post.body %></td>
-          </tr>
-          <tr>
-            <th class="text-nowrap">タグ<th>
-            <td><%= @post.tag_i18n %></td>
-          </tr>
-          <tr>
-            <th class="text-nowrap">キーワード<th>
-            <td><%= @post.keyword %></td>
-          </tr>
-        </tbody>
-      </table>
+      <%= render 'public/posts/show', post: @post %>
 
         <div class="mb-4">
           <h5 class="text-center-align">【コメント一覧】</h5>
