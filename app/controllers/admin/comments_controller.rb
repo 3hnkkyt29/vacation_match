@@ -2,7 +2,8 @@ class Admin::CommentsController < ApplicationController
 before_action :authenticate_admin!
 
   def index
-    @comments = Comment.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(15)
+    # @comments = Comment.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(15)
+     @comments = Comment.includes(:user).where(users:{is_deleted: false}).page(params[:page]).per(15).latest
   end
 
   def destroy
