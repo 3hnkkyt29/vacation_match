@@ -39,6 +39,7 @@
             <% end %>
             <strong><%= comment.user.name %></strong>&emsp;
             <%= comment.comment %>&emsp;
+            <font size="1"><%= l comment.created_at %></font>&emsp;
             <%= link_to "コメントを削除", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>&emsp;
           <% end %>
         </div>

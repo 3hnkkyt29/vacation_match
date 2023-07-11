@@ -11,6 +11,7 @@
           <th>ユーザー名</th>
           <th>投稿タイトル</th>
           <th>コメント</th>
+          <th>コメント日時</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,7 @@
           <td class="align-middle"><%= link_to comment.user.name, admin_user_path(comment.user) %></td>
           <td class="align-middle"><%= link_to comment.post.title, admin_post_path(comment.post) %></td>
           <td class="align-middle"><%= comment.comment %></td>
+          <td class="align-middle"><%= l comment.created_at %></td>
         </tr>
         <% end %>
       </tbody>

@@ -6,6 +6,7 @@
   <% end %>
   <strong><%= comment.user.name %></strong>&emsp;
   <%= comment.comment %>&emsp;
+  <font size="1"><%= l comment.created_at %></font>&emsp;
   <% if comment.user == current_user %>
     <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {"turbolinks" => false}, class: "btn btn-outline-danger btn-sm" %>&emsp;
   <% end %>
