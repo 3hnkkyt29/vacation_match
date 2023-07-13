@@ -12,6 +12,7 @@
           <th>投稿タイトル</th>
           <th>コメント</th>
           <th>コメント日時</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@
           <td class="align-middle"><%= link_to comment.post.title, admin_post_path(comment.post) %></td>
           <td class="align-middle"><%= comment.comment %></td>
           <td class="align-middle"><%= l comment.created_at %></td>
+          <td class="align-middle"><%= link_to "コメントを削除", admin_comment_path(comment), method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
         </tr>
         <% end %>
       </tbody>
