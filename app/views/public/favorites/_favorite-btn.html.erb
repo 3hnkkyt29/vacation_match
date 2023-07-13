@@ -1,13 +1,15 @@
 <% if post.favorited_by?(current_user) %>
   <p>
     <%= link_to post_favorites_path(post), method: :delete, remote: true, data: {"turbolinks" => false} do %>
-      ♥<%= post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!
+      <i class="fa-solid fa-heart" style="color: #ff7f00;"></i>
+      <%= post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!
     <% end %>
   </p>
 <% else %>
   <p>
     <%= link_to post_favorites_path(post), method: :post, remote: true, data: {"turbolinks" => false} do %>
-      ♡<%= post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!
+      <i class="fa-regular fa-heart"></i>
+      <%= post.favorites.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %> Fav!　←いいねはこちらから！
     <% end %>
   </p>
 <% end %>

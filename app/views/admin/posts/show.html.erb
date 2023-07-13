@@ -22,7 +22,7 @@
       </div>
 
       <div class="row justify-content-center">
-        <p>コメント件数：<%= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %></p>
+        <p>コメント数：<%= @post.comments.where.not(user_id:User.where(is_deleted:true).pluck(:id)).count %>件</p>
       </div>
     </div>
 
