@@ -10,7 +10,9 @@ before_action :authenticate_user!
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
+    if comment.user == current_user
+      comment.destroy
+    end
     @post = Post.find(params[:post_id])
   end
 

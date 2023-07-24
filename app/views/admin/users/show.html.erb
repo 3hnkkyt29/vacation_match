@@ -32,13 +32,12 @@
             <%= f.radio_button :is_deleted, true %>
               <strong>退会</strong>&emsp;
           </div>
-        <%= f.submit "ステータスを変更", class:'btn btn-outline-success my-2' %>
+        <%= f.submit "ステータスを変更", class:'btn btn-outline-success my-2', "data-confirm" => "本当に処理を行いますか？" %>
         <% end %>
       </div>
     </div>
 
     <div class="col-lg-9 col-sm-12">
-      <%#= render 'public/posts/index', posts: @posts %>
       <div class="d-flex flex-wrap justify-content-center">
         <% @posts.each do |post| %>
           <div class="text-center m-3">
